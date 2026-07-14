@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
     @Query("SELECT t FROM Transaction t "+
-    "WHERE YEAR(t.createAt) = :year AND MONTH(t.createAt) = :month")
+    "WHERE YEAR(t.createdAt) = :year AND MONTH(t.createdAt) = :month")
     List<Transaction> findByMonthAndYear(@Param("month") int month, @Param("year") int year);
 
     @Query("SELECT t FROM Transaction t " +
